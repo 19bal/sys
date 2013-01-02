@@ -1,6 +1,9 @@
 class ProbationsController < ApplicationController
   # GET /probations
   # GET /probations.json
+  before_filter :authenticate_user!
+  load_and_authorize_resource
+
   def index
     @probations = Probation.all
 

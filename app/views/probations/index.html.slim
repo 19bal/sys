@@ -1,23 +1,31 @@
-h1 Listing probations
+.span-home.span10
+	- model_class = Probation
+	div class="page-header"
+	  h1=t '.title', :default => model_class.model_name.human.pluralize
+	table class="table table-striped"
+	  thead
+	    tr
+	      th= model_class.human_attribute_name(:staj_yeri)
+	      th= model_class.human_attribute_name(:tur)
+	      th= model_class.human_attribute_name(:tarih)
+	      
+              th= model_class.human_attribute_name(:created_at)
+	      th=t '.actions', :default => t("helpers.actions")
+	      th=t '.actions', :default => t("helpers.actions")
+	  tbody
+	    - @probations.each do |probation|
+	      tr
+	        td= link_to probation.id, "/institution/settings/#{probation.id}"
+	        td= probation.staj_yeri
+	        td= probation.tur
+	        td= probation.tarih
 
-table
-  tr
-    th Staj yeri
-    th Tur
-    th Tarih
-    th
-    th
-    th
+	        td= probation.created_at
+		  - if can? :edit, probation
+		    td= link_to t('.edit', :default => t("helpers.links.edit")), "/institution/settings/#{probation.id}/edit", :class => 'btn btn-mini'
+		  - if can? :destroy, probation
+		    td= link_to t('.destroy', :default => t("helpers.links.destroy")), "/institution/settings/#{probation.id}", :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+  
+	= link_to t('.new', :default => t("helpers.links.new")), institution_settings_new_path, :class => 'btn btn-primary'
 
-  - @probations.each do |probation|
-    tr
-      td = probation.staj_yeri
-      td = probation.tur
-      td = probation.tarih
-      td = link_to 'Show', probation
-      td = link_to 'Edit', edit_probation_path(probation)
-      td = link_to 'Destroy', probation, :confirm => 'Are you sure?', :method => :delete
 
-br
-
-= link_to 'New Probation', new_probation_path

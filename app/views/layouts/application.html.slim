@@ -27,8 +27,8 @@ html
       - if current_user
         - if current_user.role == "ogrenci"
           = render 'studentmenu'
-        - if current_user.role == "admin"
-          = render "adminmenu"
-        - if current_user.role == "hoca"
-          = render 'academistmenu'
+        - if current_user.role == "kurum"
+          = render "institutionmenu"
+        - if current_user.role == "komisyon"
+          = render 'commissionmenu'
 

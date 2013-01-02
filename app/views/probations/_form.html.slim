@@ -1,18 +1,20 @@
-= form_for @probation do |f|
-  - if @probation.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@probation.errors.count, "error")} prohibited this probation from being saved:"
-      ul
-        - @probation.errors.full_messages.each do |message|
-          li = message
+= form_for @probation, :html => { :class => "form-horizontal" } do |f|
+  .control-group
+    = f.label :staj_yeri, :class => 'control-label'
+    .controls
+      = f.text_field :staj_yeri, :class => 'text_field'
+  .control-group
+    = f.label :tur, :class => 'control-label'
+    .controls
+      = f.text_area :tur, :class => 'text_area'
+  .control-group
+    = f.label :tarih, :class => 'control-label'
+    .controls
+      = f.text_area :tarih, :class => 'text_area'
 
-  .field
-    = f.label :staj_yeri
-    = f.text_field :staj_yeri
-  .field
-    = f.label :tur
-    = f.text_field :tur
-  .field
-    = f.label :tarih
-    = f.date_select :tarih
-  .actions = f.submit 'Save'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    '
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), institution_settings_path, :class => 'btn'
+
+

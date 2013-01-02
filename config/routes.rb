@@ -1,26 +1,50 @@
 Staj::Application.routes.draw do
-  get "commission/index"
-
-  get "institution/index"
-
+  root to: "home#index"
+  match "/about" => "home#about"
+  match "/contact" => "home#contact"
   resources :probations
-  resources :commission
-  resources :institution
-  resources :student
 
   devise_for :users
 
+  match "/student/index" => "student#index"
+  #match "/student/projects" => "student#projects"
+  match "/student/settings" => "student#settings"
+  match "/student/reports" => "student#reports"
+  #match "/student/groups" => "student#groups"
 
-  get "student/index"
-  get "home/index"
-  
   match "commission" => "commission#index"
-  match "institution" => "institution#index"
-  match "home" => "home#index"
-  match "about" => "home#about"
-  match "contact" => "home#contact"
+  #match "/admin/groups" => "admin#groups"
+
+  match "/institution/index" => "institution#index"
+  match "/institution/settings" => "probations#index"
+  match "/institution/settings/new" => "probations#new"
+  match "/institution/settings/:id/edit" => "probations#edit"
+  match "/institution/settings/:id" => "probations#show", via: :get
+  match "/institution/settings/:id" => "probations#update", via: :put
+  match "/institution/settings/:id" => "probations#destroy", via: :delete
   
-  root :to => "home#index"
+  #get "commission/index"
+
+  #get "institution/index"
+
+  #resources :probations
+  #resources :commission
+  #resources :institution
+  #resources :student
+
+  #devise_for :users
+
+
+  #get "student/index"
+  #get "home/index"
+  
+  #match "commission" => "commission#index"
+  #match "institution" => "institution#index"
+  #match "home" => "home#index"
+  #match "about" => "home#about"
+  #match "contact" => "home#contact"
+  
+  #root :to => "home#index"
 
   #match "/index" => "user#index" gereksiz
   #match "/:email/index" => "user#content" gereksiz

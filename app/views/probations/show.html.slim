@@ -1,15 +1,29 @@
-p#notice = notice
+- model_class = Probation
+div class="page-header"
+  h1=t '.title', :default => model_class.model_name.human
 
 p
-  strong Staj yeri:
-  = @probation.staj_yeri
+  strong= model_class.human_attribute_name(:staj_yeri) + ':'
+  br
+  = @proje.staj_yeri
 p
-  strong Tur:
-  = @probation.tur
+  strong= model_class.human_attribute_name(:tur) + ':'
+  br
+  = @proje.tur
 p
-  strong Tarih:
-  = @probation.tarih
+  strong= model_class.human_attribute_name(:tarih) + ':'
+  br
+  = @proje.tarih
+p
+  strong= model_class.human_attribute_name(:user_id) + ':'
+  br
+  = @proje.user_id
 
-= link_to 'Edit', edit_probation_path(@probation)
-'|
-= link_to 'Back', probations_path
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), instution_settings_path, :class => 'btn'
+  '
+  = link_to t('.edit', :default => t("helpers.links.edit")), "/institution/settings/#{@probation.id}/edit", :class => 'btn'
+
+
+
+
