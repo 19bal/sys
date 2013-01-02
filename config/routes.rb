@@ -1,4 +1,8 @@
 Staj::Application.routes.draw do
+  get "commission/index"
+
+  get "institution/index"
+
   resources :probations
 
   resources :student
