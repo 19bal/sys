@@ -1,10 +1,10 @@
 Staj::Application.routes.draw do
-  resources :student
+  resources :user
 
   devise_for :users
 
 
-  get "student/index"
+  get "user/index"
   get "home/index"
 
   match "home" => "home#index"
