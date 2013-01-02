@@ -4,7 +4,8 @@ Staj::Application.routes.draw do
   get "institution/index"
 
   resources :probations
-
+  resources :commission
+  resources :institution
   resources :student
 
   devise_for :users
@@ -12,7 +13,9 @@ Staj::Application.routes.draw do
 
   get "student/index"
   get "home/index"
-
+  
+  match "commission" => "commission#index"
+  match "institution" => "institution#index"
   match "home" => "home#index"
   match "about" => "home#about"
   match "contact" => "home#contact"
