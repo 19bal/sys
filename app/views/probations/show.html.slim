@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Staj yeri:
+  = @probation.staj_yeri
+p
+  strong Tur:
+  = @probation.tur
+p
+  strong Tarih:
+  = @probation.tarih
+
+= link_to 'Edit', edit_probation_path(@probation)
+'|
+= link_to 'Back', probations_path

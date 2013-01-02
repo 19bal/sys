@@ -1,0 +1,23 @@
+h1 Listing probations
+
+table
+  tr
+    th Staj yeri
+    th Tur
+    th Tarih
+    th
+    th
+    th
+
+  - @probations.each do |probation|
+    tr
+      td = probation.staj_yeri
+      td = probation.tur
+      td = probation.tarih
+      td = link_to 'Show', probation
+      td = link_to 'Edit', edit_probation_path(probation)
+      td = link_to 'Destroy', probation, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Probation', new_probation_path

@@ -1,0 +1,18 @@
+= form_for @probation do |f|
+  - if @probation.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@probation.errors.count, "error")} prohibited this probation from being saved:"
+      ul
+        - @probation.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :staj_yeri
+    = f.text_field :staj_yeri
+  .field
+    = f.label :tur
+    = f.text_field :tur
+  .field
+    = f.label :tarih
+    = f.date_select :tarih
+  .actions = f.submit 'Save'

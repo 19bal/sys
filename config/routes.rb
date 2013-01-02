@@ -1,4 +1,6 @@
 Staj::Application.routes.draw do
+  resources :probations
+
   resources :student
 
   devise_for :users
