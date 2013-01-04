@@ -44,10 +44,10 @@ class ProbationsController < ApplicationController
   # POST /probations.json
   def create
     @probation = Probation.new(params[:probation])
-
+    @probation.user = current_user
     respond_to do |format|
       if @probation.save
-        format.html { redirect_to @probation, notice: 'Probation was successfully created.' }
+        format.html { redirect_to institution_index_path, notice: 'Probation was successfully created.' }
         format.json { render json: @probation, status: :created, location: @probation }
       else
         format.html { render action: "new" }
@@ -60,10 +60,10 @@ class ProbationsController < ApplicationController
   # PUT /probations/1.json
   def update
     @probation = Probation.find(params[:id])
-
+    @probation.user = current_user
     respond_to do |format|
       if @probation.update_attributes(params[:probation])
-        format.html { redirect_to @probation, notice: 'Probation was successfully updated.' }
+        format.html { redirect_to institution_proselects_path, notice: 'Probation was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -79,7 +79,7 @@ class ProbationsController < ApplicationController
     @probation.destroy
 
     respond_to do |format|
-      format.html { redirect_to probations_url }
+      format.html { redirect_to institution_proselects_path }
       format.json { head :no_content }
     end
   end

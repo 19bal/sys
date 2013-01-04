@@ -4,6 +4,9 @@ class StudentController < ApplicationController
     #authorize! :index, @user, :message => 'Not authorized as an administrator.'
     #@user = User.all
   end
+  def proselects
+
+  end
   def settings
 
   end

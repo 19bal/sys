@@ -1,0 +1,34 @@
+.arkaplan
+  ul.nav.nav-tabs.nav-stacked
+  ul.nav.nav-list
+    li
+      p align="center"
+        = current_user.email
+    li.divider
+    li
+      a href="index"
+        | AnaSayfa
+    li
+      a href="proselects"
+        | Staj Yeri Seçimi
+    li
+      a href="reports"
+        | Rapor
+    li
+      a href="settings"
+        | Kullanıcı Ayarları
+    li
+      = link_to "Çıkış Yap", destroy_user_session_path, :method => :delete
+
+/!.arkaplan
+  .modal{:id => "role-options-# user.id}" style="display: none;"
+    = simple_form_for user, :url => user_path(user), :html => {:method => :put, :class => 'form-horizontal' } do |f|
+      .modal-header
+        a.close data-dismiss="modal"
+        h3 Change Role
+      .modal-body
+        = f.input :role_ids, :collection => Role.all, :as => :radio_buttons, :label_method => lambda {|t| t.name.titleize}, :label =>  false, :item_wrapper_class => 'inline'
+      .modal-footer
+        = f.submit "Change Role", :class => "btn"
+        a.btn data-dismiss="modal" href="#"
+/

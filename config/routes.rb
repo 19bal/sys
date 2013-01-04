@@ -1,51 +1,46 @@
 Staj::Application.routes.draw do
   root to: "home#index"
+  get "commission/index"
+  get "institution/index"
+  get "student/index"
   match "/about" => "home#about"
   match "/contact" => "home#contact"
   resources :probations
 
   devise_for :users
 
-  match "/student/index" => "student#index"
-  #match "/student/projects" => "student#projects"
+  match "student" => "student#index"
+  match "/student/proselects" => "student#proselects"
   match "/student/settings" => "student#settings"
   match "/student/reports" => "student#reports"
   #match "/student/groups" => "student#groups"
-
+  #match "users/registration/sign_up" => "devise/registrations#new"
   match "commission" => "commission#index"
   #match "/admin/groups" => "admin#groups"
 
-  match "/institution/index" => "institution#index"
-  match "/institution/settings" => "probations#index"
-  match "/institution/settings/new" => "probations#new"
-  match "/institution/settings/:id/edit" => "probations#edit"
-  match "/institution/settings/:id" => "probations#show", via: :get
-  match "/institution/settings/:id" => "probations#update", via: :put
-  match "/institution/settings/:id" => "probations#destroy", via: :delete
-  
+  match "institution" => "institution#index"
+  match "/institution/proselects" => "probations#index"
+  match "/institution/proselects/new" => "probations#new"
+  match "/institution/proselects/:id/edit" => "probations#edit"
+  match "/institution/proselects/:id" => "probations#show", via: :get
+  match "/institution/proselects/:id" => "probations#update", via: :put
+  match "/institution/proselects/:id" => "probations#destroy", via: :delete
+
   #get "commission/index"
-
   #get "institution/index"
-
   #resources :probations
   #resources :commission
   #resources :institution
   #resources :student
-
   #devise_for :users
-
-
   #get "student/index"
   #get "home/index"
-  
   #match "commission" => "commission#index"
   #match "institution" => "institution#index"
   #match "home" => "home#index"
   #match "about" => "home#about"
   #match "contact" => "home#contact"
-  
   #root :to => "home#index"
-
   #match "/index" => "user#index" gereksiz
   #match "/:email/index" => "user#content" gereksiz
   #match "/user/:email/index" => "user#index" gereksiz

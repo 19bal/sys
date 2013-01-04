@@ -5,24 +5,26 @@ div class="page-header"
 p
   strong= model_class.human_attribute_name(:staj_yeri) + ':'
   br
-  = @proje.staj_yeri
+  = @probation.staj_yeri
 p
   strong= model_class.human_attribute_name(:tur) + ':'
   br
-  = @proje.tur
+  = @probation.tur
 p
   strong= model_class.human_attribute_name(:tarih) + ':'
   br
-  = @proje.tarih
+  = @probation.tarih
 p
   strong= model_class.human_attribute_name(:user_id) + ':'
   br
-  = @proje.user_id
+  = @probation.user_id
 
 .form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), instution_settings_path, :class => 'btn'
+  = link_to t('.back', :default => t("helpers.links.back")),
+    instution_proselects_path, :class => 'btn'
   '
-  = link_to t('.edit', :default => t("helpers.links.edit")), "/institution/settings/#{@probation.id}/edit", :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")),
+    "/institution/proselects/#{@probation.id}/edit", :class => 'btn'
 
 
 
