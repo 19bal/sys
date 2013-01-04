@@ -7,4 +7,7 @@ class InstitutionController < ApplicationController
   def content
     # email = User.find(current_user_id).email.gsub(/@\w+.[A-z]+.[A-z]{2,4}+.[A,z]{2,4}/,'')
   end
+  def settings
+
+  end
 end
