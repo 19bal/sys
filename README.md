@@ -14,10 +14,6 @@
 
 [![forget_password] (http://i.imgur.com/hoNvk.png)](http://i.imgur.com/hoNvk.png)
 
-  **İçerik**
-
-[![içerik] (http://i.imgur.com/gPjUD.png)](http://i.imgur.com/gPjUD.png)
-
  **Hakkımızda**
 
 [![hakkımızda] (http://i.imgur.com/0SdXF.png)](http://i.imgur.com/0SdXF.png)
