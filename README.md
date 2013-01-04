@@ -10,10 +10,6 @@
 
 [![sign_in] (http://i.imgur.com/tC6CF.png)](http://i.imgur.com/tC6CF.png)
 
-  **Sign up**
-
-[![sign_up] (http://i.imgur.com/pa3PL.png)](http://i.imgur.com/pa3PL.png)
-
   **Forget Password**
 
 [![forget_password] (http://i.imgur.com/hoNvk.png)](http://i.imgur.com/hoNvk.png)
