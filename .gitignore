@@ -1,0 +1,10 @@
+.idea/
+.bundle
+*.swp
+tmp/
+log/*.log
+db/*.sqlite3
+Gemfile.lock
+dump.rdb
+db/schema.rb
+public/assets

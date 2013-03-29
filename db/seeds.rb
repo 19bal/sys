@@ -16,5 +16,13 @@ User.create(email:"seda@bil.omu.edu.tr", password:"123456", role:"ogrenci")
 User.create(email:"beg@bil.omu.edu.tr", password:"123456", role:"ogrenci")
 User.create(email:"komisyon@komisyon.com", password:"123456", role:"komisyon")
 
-
-
+Student.create(
+  tc: '11111111111',
+  first_name: 'Ogrenci',
+  last_name: 'Soyad',
+  email: "ogrenci@ogrenci.com",
+  password:"123456",
+  phone_number: '0900 900 99 99',
+  gender: 'e',
+  birthday: '04-05-1990'
+)

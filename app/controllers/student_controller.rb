@@ -6,7 +6,7 @@ class StudentController < ApplicationController
   end
 
   def settings_save
-    student = Student.update(session[:userinfo][:id], {
+    student = Student.update(current_user.id, {
       :tc => params[:tc],
       :first_name => params[:first_name],
       :last_name => params[:last_name],
