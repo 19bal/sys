@@ -13,13 +13,21 @@ Staj::Application.routes.draw do
   match "/contact" => "home#contact"
 
 
-  match "/student/index" => "student#index"
+ # match "/student/index" => "student#index"
   match "/student/proselects" => "student#proselects"
   match "/student/settings" => "student#settings"
   match "/student/reports" => "student#reports"
+  match "/student/probook" => "student#probook"
+  match "/student/documents" => "student#documents"
+  match "student" => "student#index"
+  namespace :student do
+    get   'settings'
+    post  'settings_save'
+    get   'password'
+    post  'password_save'
+  end
 
   match "/commission/index" => "commission#index"
-  match "/commission/proselects" => "commission#proselects"
   match "/commission/reports" => "commission#reports"
   match "/commission/settings" => "commission#settings"
   match "/commission/users" => "commission#users"
@@ -27,6 +35,7 @@ Staj::Application.routes.draw do
   match "/institution/index" => "institution#index"
   match "/institution/settings" => "institution#settings"
   match "/institution/reports" => "institution#reports"
+  match "/institution/requests" => "institution#requests"
   match "/institution/proselects" => "probations#index"
   match "/institution/proselects/new" => "probations#new"
   match "/institution/proselects/:id/edit" => "probations#edit"
